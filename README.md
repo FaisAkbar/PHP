@@ -1,10 +1,15 @@
 # PHP BASIC
 ##### Sumber Youtube : [Laracast](https://www.youtube.com/playlist?list=PL3VM-unCzF8ipG50KDjnzhugceoSG3RTC)
 
-# 1 How to Choose A First Programming Language
-## PHP pada umumnya digunakan dalam pembuatan website dinamis, yaitu sebuah website yang memungkinkan penggunanya untuk berinteraksi secara langsung, dalam artian pengguna dapat menambah, memodifikasi, ataupun menghapus konten di dalam sebuah web tanpa harus membuka struktur kode dari web tersebut. Kita juga dapat menyisipkan tag html apapun di dalam file PHP, namun tidak berlaku sebaliknya, tag PHP tidak dapat disisipkan di dalam file html.
-## 1. Tag PHP
-## Di dalam file php, tag php dimulai dengan :
+## 1. How to Choose A First Programming Language
+##### Dalam Memilih bahasa pemrograman, kita harus mempertimbangkan tujuan apa yang kita miliki saat ingin belajar bahasa tersebut. Jadi dalam memilih bahasa pemrograman harus sesuai dengan tujuan kita. Contohnya apabila kita ingin membuat situs web, kita bisa belajar bahasa pemrograman seperti HTML, CSS, dan JS. Jika kita ingin membuat aplikasi desktop, kita mungkin bisa memilih bahasa seperti Python, C++, atau Java. Jika kita benar benar baru dalam pemrograman, cobalah memilih bahasa yang lebih mudah seperti Python atau Ruby. Setelah itu kita bisa mempertimbangkan jenis proyek yang kita ingin kerjakan di masa depan, jika kita ingin menjadi seorang pengembang Game, kita bisa memilih bahasa C++ atau C#, dan apa bila kita ingin fokus pada pengembangan Web, kita bisa memilih bahasa JavaScript atau PHP.
+### Kali ini Kita akan belajar tentang Bahasa Pemrograman PHP
+##### PHP adalah bahasa pemrograman server-side yang dirancang untuk pengembangan web. PHP singkatan dari "PHP: Hypertext Preprocessor". PHP digunakan untuk menghasilkan konten dinamis pada website, seperti halaman web yang mengambil data dari database, membuat dan mengirim email, mengolah formulir, dan masih banyak lagi. PHP juga dapat digunakan untuk membuat aplikasi web yang lebih besar dan kompleks. PHP umumnya digunakan dengan teknologi web seperti Apache, MySQL, dan HTML. Saat ini, PHP terus berkembang dan ditingkatkan oleh komunitas pengembang web, dan menjadi salah satu bahasa pemrograman web yang paling populer dan mudah digunakan.
+
+## 2. PHP For Beginners, Ep 2 - Tools of the Trade
+
+## 3. PHP For Beginners, Ep 3 - Your First PHP Tag
+### Di dalam file php, tag php dimulai dengan :
 ```
 <?php
   // Baris kode Anda
@@ -14,7 +19,7 @@
 ```
   echo 'Hello World';
 ```
-## 2. Variabel
+## 4. PHP For Beginners, Ep 4 - Variables
 #### Di dalam PHP, penamaan variabel dimulai dengan simbol ```$```. Contohnya adalah :
 ```
 // Variabel bernama $greeting dengan value "Hello"
@@ -26,7 +31,7 @@ echo $greeting . " Everybody!";
 // Variabel juga dapat dipanggil di didalam string, NAMUN HARUS DI DALAM PETIK DUA " "
 echo "$greeting Everybody!"; // Output sama dengan di atas
 ```
-## 3. Conditionals dan Booleans
+## 5. PHP For Beginners, Ep 5 - Conditionals and Booleans
 #### Conditional merupakan salah satu ekspresi dalam pemrograman yang menghasilkan nilai *true / false*. Jika kondisi tersebut bernilai *true* maka sistem menjalankan statement di dalam if statement namun jika kondisi tersebut bernilai *false* maka sistem tidak menjalankan statement tersebut. Terdapat sebuah tipe data yang hanya mengembalikan nilai *true / false*, yaitu boolean. Nilai boolean memiliki default *false*. Contohnya :
 #### Di dalam tag php :
 ```
@@ -50,7 +55,7 @@ if ($read) {
 ```
 #### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true :
 ![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/if-else.png?raw=true)
-## 4. Arrays
+## 6. PHP For Beginners, Ep 6 - Arrays
 #### Array dalam pemgrograman termasuk PHP, merupakan suatu tipe data terstruktur yang dapat menyimpan banyak data dengan suatu nama yang sama dan menempati tempat di memori yang berurutan serta bertipe data sama pula. Dalam PHP, array adalah struktur data yang memungkinkan untuk menyimpan beberapa elemen dalam satu variabel. Elemen-elemen ini disimpan sebagai pasangan nilai-kunci. Contoh deklarasi array :
 ```
 <?php
@@ -70,7 +75,7 @@ $books = [
 ```
 #### Maka akan tampil di web browser :
 ![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach-array.png?raw=true)
-## 5. Associative Arrays
+## 7. PHP For Beginners, Ep 7 - Associative Arrays
 #### Associative array merupakan array yang berisi satu atau lebih array, dimana terdapat key dan value pada setiap data, contoh :
 ```
 <?php
