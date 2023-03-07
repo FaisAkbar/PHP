@@ -16,16 +16,28 @@
 6. Version Control: Version control digunakan untuk melacak perubahan pada kode program dan bekerja sama dengan tim. Salah satu platform version control yang populer adalah Git dan tersedia beberapa hosting Git seperti GitHub, GitLab, Bitbucket.
 
 ## 3. PHP For Beginners, Ep 3 - Your First PHP Tag
-### Di dalam file php, tag php dimulai dengan :
+##### Tag PHP digunakan untuk menandai kode PHP pada halaman web. Tag PHP dimulai dengan ``<?php`` dan diakhiri dengan ``?>``. Semua kode PHP harus ditempatkan di antara tag PHP. Contoh :
 ```
 <?php
   // Baris kode Anda
 ?>
 ```
-#### Untuk menampilkan baris kode ke web browser, di dalam tag php, digunakan perintah ``` echo ```, contoh :
+##### Fungsi ``echo`` digunakan untuk menampilkan teks atau variabel pada halaman web. Fungsi ``echo`` ditulis dengan format ``echo 'teks';``. Contoh :
 ```
   echo 'Hello World';
 ```
+##### Contoh kode pada video menunjukkan cara menampilkan teks dengan fungsi "echo". Kode tersebut adalah sebagai berikut:
+```
+<?php
+  echo "Hello, world!";
+?>
+```
+##### Penjelasan kode program:
+1. "<?php" dan "?>" adalah tag PHP yang digunakan untuk menandai awal dan akhir kode PHP.
+2. Fungsi "echo" digunakan untuk menampilkan teks "Hello, world!" pada halaman web.
+3. Teks "Hello, world!" harus diapit dengan tanda kutip (" ") untuk menandakan bahwa itu adalah string.
+4. Tanda titik koma (;) digunakan untuk menandakan akhir dari setiap perintah.
+
 ## 4. PHP For Beginners, Ep 4 - Variables
 #### Di dalam PHP, penamaan variabel dimulai dengan simbol ```$```. Contohnya adalah :
 ```
