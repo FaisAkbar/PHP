@@ -111,7 +111,52 @@ $books = [
 ![array](https://github.com/FaisAkbar/PHP/blob/main/img/array.png)
 
 ## 7. PHP For Beginners, Ep 7 - Associative Arrays
-#### Associative array merupakan array yang berisi satu atau lebih array, dimana terdapat key dan value pada setiap data, contoh :
+##### Associative array adalah array yang memiliki key dan value. Key adalah nama yang diberikan untuk data pada array. Key dapat berupa angka atau string. Contoh :
+```
+<?php
+$books = [
+  "Do Androids Dream of Electric Sheep",
+  "The Langoliers",
+  "Hail Mary"
+];
+?>
+<p>
+    <?= $books[2] ?>
+</p>
+```
+#### berikut adalah hasil dari kode program di atas :
+![array2](https://github.com/FaisAkbar/PHP/blob/main/img/array2.png)
+
+##### Lalu bagaimana jika data pada array bertambah, jadi tidak hanya judul buku, namun ada nama penulis, deskripsi, dan lain-lain. Maka kita dapat menggunakan associative array. Contoh :
+```
+<?php
+$books = [
+  [
+    'name' => "Do Androids Dream of Electric Sheep",
+    'author' => "Philip K. Dick",
+    'purchaseUrl' => "http://example.com"
+  ],
+  [
+    'name' => "Project Hail Mary",
+    'author' => "Andy Weir",
+    'purchaseUrl' => "http://example.com"
+  ]
+];
+?>
+```
+##### jadi untuk mengakses data pada array, kita dapat menggunakan perulangan lagi, contoh disini menggunakan perulangan *foreach* :
+```
+<ul>
+        <?php foreach ($books as $book) : ?>
+        <li>
+            <h2><?= $book['name'] ?></h2> // untuk memanggil data nama buku
+            <p>By <?= $book['author'] ?></p> // untuk memanggil data nama penulis
+            <a href="<?= $book['purchaseUrl'] ?>">Buy Now</a> // untuk memanggil data url beli buku
+        </li>
+        <?php endforeach ?>
+```
+##### berikut adalah hasil dari kode program di atas :
+![array3](https://github.com/FaisAkbar/PHP/blob/main/img/array3.png)
 
 ## 8. PHP For Beginners, Ep 8 - Functions and Filtering
 #### Function adalah sebuah blok kode yang dapat digunakan berulang kali untuk melakukan suatu tugas tertentu. Function dapat menerima parameter dan mengembalikan nilai. Function dapat digunakan untuk memecah kode menjadi bagian-bagian yang lebih kecil dan mudah dipahami. Contoh :
