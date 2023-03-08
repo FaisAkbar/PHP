@@ -90,7 +90,25 @@ if ($read) {
 ![false](https://github.com/FaisAkbar/PHP/blob/main/img/false.png)
 
 ## 6. PHP For Beginners, Ep 6 - Arrays
-#### Array dalam pemgrograman termasuk PHP, merupakan suatu tipe data terstruktur yang dapat menyimpan banyak data dengan suatu nama yang sama dan menempati tempat di memori yang berurutan serta bertipe data sama pula. Dalam PHP, array adalah struktur data yang memungkinkan untuk menyimpan beberapa elemen dalam satu variabel. Elemen-elemen ini disimpan sebagai pasangan nilai-kunci. Contoh deklarasi array :
+##### Array adalah kumpulan data yang disimpan dalam satu variabel. Array dapat menyimpan satu atau lebih nilai. Array dapat menyimpan berbagai jenis data, termasuk teks, angka, dan boolean. Array diawali dengan tanda ``$`` diikuti dengan nama variabel. Nama variabel harus dimulai dengan huruf atau garis bawah, dan dapat mengandung huruf, angka, dan garis bawah. Contoh :
+```
+<?php
+$books = [
+  "Do Androids Dream of Electric Sheep",
+  "The Langoliers",
+  "Hail Mary"
+];
+```
+##### Array di atas memiliki tiga buah data, yaitu "Do Androids Dream of Electric Sheep", "The Langoliers", dan "Hail Mary". Untuk mengakses data pada array dapat digunakan ekspresi perulangan(*loop*) di dalam tag html, misalnya *for, foreach, while,* atau *do-while*. Contoh menggunakan *foreach* :
+```
+ <ul>
+        <?php foreach ($books as $book) : ?>
+            <li><?= $book ?></li>
+        <?php endforeach ?>
+ </ul>
+```
+##### berikut adalah hasil dari kode program di atas :
+![array](https://github.com/FaisAkbar/PHP/blob/main/img/array.png)
 
 ## 7. PHP For Beginners, Ep 7 - Associative Arrays
 #### Associative array merupakan array yang berisi satu atau lebih array, dimana terdapat key dan value pada setiap data, contoh :
