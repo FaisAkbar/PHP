@@ -39,76 +39,65 @@
 4. Tanda titik koma (;) digunakan untuk menandakan akhir dari setiap perintah.
 
 ## 4. PHP For Beginners, Ep 4 - Variables
-#### Di dalam PHP, penamaan variabel dimulai dengan simbol ```$```. Contohnya adalah :
+##### Variabel digunakan untuk menyimpan data yang dapat digunakan dalam kode PHP. Variabel dapat menyimpan berbagai jenis data, termasuk teks, angka, dan boolean. Variabel diawali dengan tanda ``$`` diikuti dengan nama variabel. Nama variabel harus dimulai dengan huruf atau garis bawah, dan dapat mengandung huruf, angka, dan garis bawah. Contohnya :
 ```
-// Variabel bernama $greeting dengan value "Hello"
+// Variabel dengan nama $greeting dan value "Hello"
 $greeting = "Hello";
 
-// Pemanggilan dalam echo, dipisahkan oleh ' . ' jika terdapat tambahan argumen, misalnya string atau variabel lain (concate)
-echo $greeting . " Everybody!";
+// Pemanggilan dalam echo, dipisahkan oleh ' . ' jika terdapat tambahan argumen, 
+// misalnya string atau variabel lain (concate)
+echo $greeting . "Everybody!";
 
-// Variabel juga dapat dipanggil di didalam string, NAMUN HARUS DI DALAM PETIK DUA " "
-echo "$greeting Everybody!"; // Output sama dengan di atas
+// untuk menambahkan spasi, bisa dilakukan sebelum "Everybody!"
+echo $greeting . " Everybody!";
+// atau
+echo $greeting . " " . "Everybody!";
+
+// selain cara di atas, kita juga bisa dengan cara Variabel dipanggil di didalam string. 
+// agar terlihat lebih rapih dan lebih efision
+echo "$greeting Everybody!";
 ```
+
 ## 5. PHP For Beginners, Ep 5 - Conditionals and Booleans
-#### Conditional merupakan salah satu ekspresi dalam pemrograman yang menghasilkan nilai *true / false*. Jika kondisi tersebut bernilai *true* maka sistem menjalankan statement di dalam if statement namun jika kondisi tersebut bernilai *false* maka sistem tidak menjalankan statement tersebut. Terdapat sebuah tipe data yang hanya mengembalikan nilai *true / false*, yaitu boolean. Nilai boolean memiliki default *false*. Contohnya :
-#### Di dalam tag php :
+##### Conditional adalah pernyataan yang mengevaluasi suatu kondisi dan menjalankan kode tertentu berdasarkan hasil evaluasi. Jika kondisi tersebut bernilai *true* maka sistem menjalankan statement di dalam if statement namun jika kondisi tersebut bernilai *false* maka sistem tidak menjalankan statement tersebut. Sedangkan boolean adalah tipe data yang hanya memiliki dua nilai, yaitu *true* dan *false*. Nilai default dari Boolean adalah *false*. Contoh : 
 ```
 <?php
+//Membuat variabel
 $name = "Dark Matter";
 $read = true;
 
 //Operasi if-else
 if ($read) {
-    $message = "You have read $name"; // Mengembalikan nilai true
+    $message = "You have read $name"; // jika bernilai true, maka akan mengembalikan nilai true
 } else {
-    $message = "You have NOT read $name"; // Mengembalikan nilai false
+    $message = "You have NOT read $name"; // jika bernilai false, maka akan mengembalikan nilai false
 }
 <?
+<h1>
+    // cara menampilkan variabel
+    <?php 
+    echo $message;
+    ?>
+    // atau
+    <?= $message ?> // membuka php sekaligus memanggil echo
+</h1>
 ```
-#### Di dalam body tag html
-```
- <!-- Print variabel $message ke web browser di dalam tag html
-    Menggunakan <?php echo $message ?> atau <= $message ?> -->
-<h1><?= $message ?></h1>
-```
-#### Maka akan tampil "You have read Dark Matter" pada web browser, karena bernilai true :
-![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/if-else.png?raw=true)
+##### karena variabel $read bernilai true, maka akan mengembalikan nilai true dan akan menampilkan "You have read Dark Matter"
+![true](https://github.com/FaisAkbar/PHP/blob/main/img/true.png)
+##### namun jika kita mengubah nilai variabel $read menjadi false, maka akan mengembalikan nilai false dan akan menampilkan "You have NOT read Dark Matter"
+![false](https://github.com/FaisAkbar/PHP/blob/main/img/false.png)
+
 ## 6. PHP For Beginners, Ep 6 - Arrays
 #### Array dalam pemgrograman termasuk PHP, merupakan suatu tipe data terstruktur yang dapat menyimpan banyak data dengan suatu nama yang sama dan menempati tempat di memori yang berurutan serta bertipe data sama pula. Dalam PHP, array adalah struktur data yang memungkinkan untuk menyimpan beberapa elemen dalam satu variabel. Elemen-elemen ini disimpan sebagai pasangan nilai-kunci. Contoh deklarasi array :
-```
-<?php
-$books = [
-  "Do Androids Dream of Electric Sheep",
-  "The Langoliers",
-  "Hail Mary
-];
-```
-#### Untuk memperoleh isi dari array tersebut, dapat digunakan ekspresi perulangan(*loop*) di dalam tag html, misalnya *for, foreach, while,* atau *do-while*. Contoh menggunakan *foreach* :
-```
- <ul>
-        <?php foreach ($books as $book) : ?>
-            <li><?= $book ?></li>
-        <?php endforeach ?>
- </ul>
-```
-#### Maka akan tampil di web browser :
-![if-else](https://github.com/HanifAjiPrasetyo/PHP/blob/main/foreach-array.png?raw=true)
+
 ## 7. PHP For Beginners, Ep 7 - Associative Arrays
 #### Associative array merupakan array yang berisi satu atau lebih array, dimana terdapat key dan value pada setiap data, contoh :
-```
-<?php
-$books = [
-  [
-    'name' => "Do Androids Dream of Electric Sheep",
-    'author' => "Philip K. Dick",
-    'purchaseUrl' => "http://example.com"
-  ],
-  [
-    'name' => "Project Hail Mary",
-    'author' => "Andy Weir",
-    'purchaseUrl' => "http://example.com"
-  ]
-]
-```
-#### Setiap item dalam array di atas memiliki identifier atau key dengan value masing-masing, contohnya *key : name, value : Project Hail Mary*.
+
+## 8. PHP For Beginners, Ep 8 - Functions and Filtering
+#### Function adalah sebuah blok kode yang dapat digunakan berulang kali untuk melakukan suatu tugas tertentu. Function dapat menerima parameter dan mengembalikan nilai. Function dapat digunakan untuk memecah kode menjadi bagian-bagian yang lebih kecil dan mudah dipahami. Contoh :
+
+## 9. PHP For Beginners, Ep 9 - Lambda Functions
+#### Lambda function adalah function yang tidak memiliki nama. Lambda function dapat digunakan untuk membuat function yang sederhana dan hanya digunakan sekali. Contoh :
+
+## 10. PHP For Beginners, Ep 10 - Separate PHP Logic From the Template
+#### Dalam pembuatan website, biasanya terdapat beberapa halaman yang memiliki tampilan yang sama, namun konten yang berbeda. Untuk menghindari duplikasi kode, kita dapat memisahkan kode PHP dari kode HTML. Contoh :
