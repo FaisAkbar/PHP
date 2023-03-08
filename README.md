@@ -57,6 +57,8 @@ echo $greeting . " " . "Everybody!";
 // agar terlihat lebih rapih dan lebih efision
 echo "$greeting Everybody!";
 ```
+##### berikut adalah hasil dari kode program di atas :
+![hello](https://github.com/FaisAkbar/PHP/blob/main/img/hello.png)
 
 ## 5. PHP For Beginners, Ep 5 - Conditionals and Booleans
 ##### Conditional adalah pernyataan yang mengevaluasi suatu kondisi dan menjalankan kode tertentu berdasarkan hasil evaluasi. Jika kondisi tersebut bernilai *true* maka sistem menjalankan statement di dalam if statement namun jika kondisi tersebut bernilai *false* maka sistem tidak menjalankan statement tersebut. Sedangkan boolean adalah tipe data yang hanya memiliki dua nilai, yaitu *true* dan *false*. Nilai default dari Boolean adalah *false*. Contoh : 
