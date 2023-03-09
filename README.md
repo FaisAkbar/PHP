@@ -19,7 +19,7 @@
 ##### Tag PHP digunakan untuk menandai kode PHP pada halaman web. Tag PHP dimulai dengan ``<?php`` dan diakhiri dengan ``?>``. Semua kode PHP harus ditempatkan di antara tag PHP. Contoh :
 ```
 <?php
-  // Baris kode Anda
+  // kode program Anda
 ?>
 ```
 ##### Fungsi ``echo`` digunakan untuk menampilkan teks atau variabel pada halaman web. Fungsi ``echo`` ditulis dengan format ``echo 'teks';``. Contoh :
@@ -134,12 +134,12 @@ $books = [
   [
     'name' => "Do Androids Dream of Electric Sheep",
     'author' => "Philip K. Dick",
-    'purchaseUrl' => "http://example.com"
+    'purchase_url' => "http://example.com"
   ],
   [
     'name' => "Project Hail Mary",
     'author' => "Andy Weir",
-    'purchaseUrl' => "http://example.com"
+    'purchase_url' => "http://example.com"
   ]
 ];
 ?>
@@ -151,7 +151,7 @@ $books = [
         <li>
             <h2><?= $book['name'] ?></h2> // untuk memanggil data nama buku
             <p>By <?= $book['author'] ?></p> // untuk memanggil data nama penulis
-            <a href="<?= $book['purchaseUrl'] ?>">Buy Now</a> // untuk memanggil data url beli buku
+            <a href="<?= $book['purchase_url'] ?>">Buy Now</a> // untuk memanggil data url beli buku
         </li>
         <?php endforeach ?>
 ```
@@ -159,10 +159,309 @@ $books = [
 ![array3](https://github.com/FaisAkbar/PHP/blob/main/img/array3.png)
 
 ## 8. PHP For Beginners, Ep 8 - Functions and Filtering
-#### Function adalah sebuah blok kode yang dapat digunakan berulang kali untuk melakukan suatu tugas tertentu. Function dapat menerima parameter dan mengembalikan nilai. Function dapat digunakan untuk memecah kode menjadi bagian-bagian yang lebih kecil dan mudah dipahami. Contoh :
+##### Function adalah sebuah blok kode yang dapat digunakan berulang kali untuk melakukan suatu tugas tertentu. Function dapat menerima parameter dan mengembalikan nilai. Function dapat digunakan untuk memecah kode menjadi bagian-bagian yang lebih kecil dan mudah dipahami.
+##### Filtering adalah proses memvalidasi data yang dimasukkan oleh pengguna. Filtering dapat dilakukan dengan menggunakan function filter_var() dan filter_input(). Contoh :
+```
+<?php 
+        $books = [
+            [
+              'name'          => "Do Andorids Dream of Electric Sheep",
+              'author'        => "Philip K. Dick",
+              'releaseYear'   => 1968,
+              'purchase_url'  => "http://example.com"
+            ],
+            [
+              'name'          => "Project Hail Mary",
+              'author'        => "Andy Weir",
+              'releaseYear'   => 2021,
+              'purchase_url'  => "http://example.com"
+            ],
+            [
+                'name'          => "The Martisan",
+                'author'        => "Andy Weir",
+                'releaseYear'   => 2011,
+                'purchase_url'  => "http://example.com"
+              ]
+          ];
+    ?>
+    <ul>
+    <?php foreach ($books as $book) : ?>
+    // Filter dengan if, filter buku berdasarkan nama author
+        <?php if ($book['author'] = 'Andy Weir') : ?>
+          <li>
+            <a href="<?= $book['purchase_url'] ?>">
+             <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+            </a>
+          </li>
+        <?php endif ?>
+    <?php endforeach ?>
+</ul>
+```
+##### Pengkondisian dengan hanya sebuah tanda ``"="`` tidak tepat, karena tanda ``"="`` akan mengubah value dari semua key author menjadi ``'Andy Weir'`` atau dinamakan *assign value*, sedangkan dibutuhkan filter data untuk menampilkan buku dengan author ``"Andy Weir"`` saja atau *equal to*, sehingga harus dicek kesamaan atau *equality* dengan 3 tanda ``"="`` atau ``"==="`` Maka kondisi dalam if menjadi :
+```
+<ul>
+  <?php foreach ($books as $book) :?>
+    <?php if ($book['author'] === 'Andy Weir') :?>
+      <li>
+        <a href="<?= $book['purchase_url'] ?>">
+          <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+        </a>
+      </li>
+    <?php endif; ?>
+  <?php endforeach; ?>
+</ul>
+```
+##### berikut adalah hasil dari kode program di atas :
+![filter1](https://github.com/FaisAkbar/PHP/blob/main/img/filter1.png)
+
+##### Untuk mempermudah, kita dapat membuat function untuk melakukan filter data. Contoh :
+```
+//Deklarasi function
+function filterByAuthor(){
+    //Kode program
+}
+
+//Untuk melakukan pemanggilan function, cukup dengan memanggil nama functionnya dengan menambahkan tanda kurung ()
+filterByAuthor();
+
+//Menampilkan isi dari function yang sudah dibuat ke dalam browser
+function filterByAuthor(){
+    return "gibberish"; 
+    //Return adalah sebuah keyword yang digunakan untuk mengembalikan nilai dari sebuah function, dapat berupa string, integer, array, object, boolean, dan lain-lain.
+}
+// Contoh
+<p>
+  <?= filterByAuthor($books); ?>
+  //Di browser akan menampilkan "gibberish"
+</p>
+```
+##### Berikut adalah contoh function untuk melakukan filter data :
+```
+//Kita bisa menambahkan perulanagan foreach di dalam function untuk melakukan filter data
+//Contoh kita akan menfilter data menggunakan foreach loop pada array $books sebagai parameter berdasarkan author 'Andy Weir'
+function filterByAuthor($books){
+    $filtered = [];
+    foreach ($books as $book) {
+        if ($book['author'] === 'Andy Weir') {
+            $filtered[] = $book;
+        }
+    }
+    return $filtered;//Array yang sudah difilter akan dikembalikan ke dalam function
+}
+//Untuk menampilkan hasil dari function filterByAuthor, kita bisa menggunakan perulangan foreach lagi
+<ul>
+  <?php foreach (filterByAuthor($books) as $book) :?>
+    <li>
+      <a href="<?= $book['purchase_url'] ?>">
+        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
+```
+##### Berikut adalah hasil dari kode program di atas :
+![filter2](https://github.com/FaisAkbar/PHP/blob/main/img/filter2.png)
+
+##### Jika diamati lebih lanjut, function di atas masih memerlukan perubahan lagi. Karena apabila kita ingin menampilkan ``'author'`` yang berbeda, kita harus merubah nama ``'author'`` di dalam function. Jadi kita bisa memodifikasi function menjadi lebih dinamis dengan menggunakan parameter baru. Contoh :
+```
+function filterByAuthor($books, $author){
+    $filtered = [];
+    foreach ($books as $book) {
+        if ($book['author'] === $author) {
+            $filtered[] = $book;
+        }
+    }
+    return $filtered;
+}
+<ul>
+  <?php foreach (filterByAuthor($books, 'Andy Weir') as $book) :?>
+    <li>
+      <a href="<?= $book['purchase_url'] ?>">
+        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
+```
+##### Berikut adalah hasil dari kode program di atas :
+![filter3](https://github.com/FaisAkbar/PHP/blob/main/img/filter3.png)
 
 ## 9. PHP For Beginners, Ep 9 - Lambda Functions
-#### Lambda function adalah function yang tidak memiliki nama. Lambda function dapat digunakan untuk membuat function yang sederhana dan hanya digunakan sekali. Contoh :
+##### Function dapat digunakan untuk menfilter buku berdasarkan author tetapi jika kita ingin menambahkan opsi filter lagi, kita harus membuat function baru. Sehingga kita bisa menggunakan lambda function untuk membuat function yang lebih dinamis. Function yang dibuat sebelumnya juga dapat dimasukkan ke dalam sebuah variabel yang dinamakan extract variable. Contoh :
+```
+<?php
+$filteredBooks = filterByAuthor($books, 'Andy Weir');
+?>
+<ul>
+  <?php foreach ($filteredBooks as $book) :?>
+    <li>
+      <a href="<?= $book['purchase_url'] ?>">
+        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
+```
+##### Function juga dapat dibuat dan disimpan dalam variabel. Hal ini dinamakan Lambda Function / Anonymous Function.
+```
+//Membuat Variabel yang Berisikan Function
+<?php
+  $filterByAuthor = function ($books, $author) {
+    $filtered = [];
+    foreach ($books as $book) {
+        if ($book['author'] === $author) {
+            $filtered[] = $book;
+        }
+    }
+    return $filtered;
+  };
+  $filtered = $filterByAuthor($books, 'Andy Weir');
+?>
+
+//Memanggil dalam Tag HTML
+<ul>
+  <?php foreach ($filtered as $book) :?>
+    <li>
+      <a href="<?= $book['purchase_url'] ?>">
+        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
+```
+##### Function sebelumnya dapat disederhanakan dengan menggunakan refactoring dengan cara menambahkan parameter function sesuai dengan key dan value yang akan difilter.
+```
+<?php
+  function filter($items, $key, $value) {
+    $filteredItems = [];
+    foreach ($items as $item) {
+        if ($item[$key] === $value) {
+            $filteredItems[] = $item;
+        }
+    }
+    return $filteredItems;
+  };
+  $filteredBooks = filter($books, 'releaseYear', 2011);
+?>
+
+<ul>
+  <?php foreach ($filteredBooks as $book) :?>
+    <li>
+      <a href="<?= $book['purchase_url'] ?>">
+        <?= $book['name'] ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+      </a>
+    </li>
+  <?php endforeach; ?>
+</ul>
+```
+##### Refactoring juga dapat diimplementasikan jika menginginkan value yang lebih fleksibel, misalnya terdapat data dengan tipe data integer dan ingin ditampilkan data yang <= dari value tersebut, maka kita dapat memisahkan pengkondisian if ke dalam sebuah function, sehingga menjadi :
+```
+<?php
+function filter($items, $function){
+        $filteredItems = [];
+        foreach ($items as $item) {
+            if ($function($item)) {
+                $filteredItems[] = $item;
+            }
+        }
+        return $filteredItems;
+    }
+    
+    // Filter buku dengan tahun rilis < 2000
+
+    $filteredBooks = filter($books, function($book){
+        return $book['releaseYear'] < 2000;
+    });
+    ?>
+   
+   // Menampilkan buku dengan tahun rilis < 2000
+    <ul>
+        <?php foreach ($filteredBooks as $book) : ?>
+            <li>
+                <a href="<?= $book['purchase_url'] ?>">
+                    <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+                </a>
+            </li>
+        <?php endforeach ?>
+    </ul>
+```
+##### Untuk melakukan filtering seperti diatas, PHP sudah menyediakan built-in function, sehingga tidak perlu membuat secara manual, yaitu array_filter() :
+```
+// Built-in function untuk filtering array
+$filteredBooks = array_filter($books, function ($book) {
+    return $book['releaseYear'] > 2000;
+});
+?>
+
+<!-- Menampilkan buku berdasarkan filter -->
+<ul>
+    <?php foreach ($filteredBooks as $book) : ?>
+        <li>
+            <a href="<?= $book['purchase_url'] ?>">
+                <?= $book['name']; ?> (<?= $book['releaseYear'] ?>) - By <?= $book['author'] ?>
+            </a>
+        </li>
+    <?php endforeach; ?>
+</ul>
+```
 
 ## 10. PHP For Beginners, Ep 10 - Separate PHP Logic From the Template
 #### Dalam pembuatan website, biasanya terdapat beberapa halaman yang memiliki tampilan yang sama, namun konten yang berbeda. Untuk menghindari duplikasi kode, kita dapat memisahkan kode PHP dari kode HTML. Contoh :
+
+## PHP For Beginners, Ep 11 - Technical Check-In (With Quiz)
+
+## PHP For Beginners, Ep 12 - Page Links
+
+## PHP For Beginners, Ep 13 - Partials
+
+## PHP For Beginners, Ep 14 - Superglobals and Current Page Styling
+
+## PHP For Beginners, Ep 15 - Make a PHP Router
+
+## PHP For Beginners, Ep 16 - Create a MySQL Database
+
+## PHP For Beginners, Ep 17 - PDO First Steps
+
+## PHP For Beginners, Ep 18 - Extract a PHP Database Class
+
+## PHP For Beginners, Ep 19 - Environments and Configuration Flexibility
+
+## PHP For Beginners, Ep 20 - SQL Injection Vulnerabilities Explained
+
+## PHP For Beginners, Ep 21 - Mini-Project: Notes App
+
+## PHP For Beginners, Ep 22 - Render the Notes and Note Page
+
+## PHP For Beginners, Ep 23 - Introduction to Authorization
+
+## PHP For Beginners, Ep 24 - Programming is Rewriting
+
+## PHP For Beginners, Ep 25 - Intro to Forms and Request Methods
+
+## PHP For Beginners, Ep 26 - Always Escape Untrusted Input
+
+## PHP For Beginners, Ep 27 - Introduction to Form Validation
+
+## PHP For Beginners, Ep 28 - Extract a Simple Validation Class
+
+## PHP For Beginners, Ep 29 - Resourceful Naming Conventions
+
+## PHP For Beginners, Ep 30 - Autoloading and Extraction
+
+## PHP For Beginners, Ep 31 - Namespacing: What, Why, How
+
+## PHP For Beginners, Ep 32 - Handle Multiple Request Methods From a Controller Action?
+
+## PHP For Beginners, Ep 33 - Build a Better PHP Router
+
+## PHP For Beginners, Ep 34 - One Request, One Controller
+
+## PHP For Beginners, Ep 35 - Make Your First Service Container
+
+## PHP For Beginners, Ep 36 - Updating a Resource With PATCH Requests
+
+## PHP For Beginners, Ep 37 - Sessions 101
+
+## PHP For Beginners, Ep 38 - Register a New User
+
+## PHP For Beginners, Ep 39 - Write Your First Middleware
